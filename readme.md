@@ -23,5 +23,5 @@ These sources provide some more background information on the Braccio arm and or
 https://github.com/arduino-org/arduino-library-braccio
 http://www.arduino.org/learning/reference/Braccio
 
-#License
+# License
 This library is licensed under the GNU GPL V3 license. Please see the license file for more information.
