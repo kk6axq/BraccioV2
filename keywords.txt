@@ -1,0 +1,29 @@
+################################################################################
+# keywords.txt - Keyword file for BraccioV2 library                            #
+################################################################################
+
+# Class
+Braccio	KEYWORD3
+
+# Methods
+begin	KEYWORD2
+setAllAbsolute	KEYWORD2
+setAllRelative	KEYWORD2
+setOneAbsolute	KEYWORD2
+setOneRelative	KEYWORD2
+setJointMax	KEYWORD2
+setJointMin	KEYWORD2
+setJointCenter	KEYWORD2
+setDelta	KEYWORD2
+setAllNow	KEYWORD2
+update	KEYWORD2
+safeDelay	KEYWORD2
+getCenter	KEYWORD2
+
+# Constants
+BASE_ROT	LITERAL1
+SHOULDER	LITERAL1
+ELBOW	LITERAL1
+WRIST	LITERAL1
+WRIST_ROT	LITERAL1
+GRIPPER	LITERAL1
