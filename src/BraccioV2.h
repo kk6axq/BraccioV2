@@ -44,7 +44,7 @@
 //Max/min values for all servos globally
 #define GLOBAL_MIN 0
 #define GLOBAL_MAX 180
-//Arg input:
+
 class Braccio {
   public:
     Braccio();

@@ -31,6 +31,7 @@ void Braccio::begin() {
 void Braccio::begin(bool defaultPos) {
   _initializeServos(defaultPos);
 }
+//Initializes all servos by attaching and optionally moving them all
 void Braccio::_initializeServos(bool defaultPos) {
   pinMode(SOFT_START_PIN, OUTPUT);
   digitalWrite(SOFT_START_PIN, LOW);
@@ -47,7 +48,7 @@ void Braccio::_initializeServos(bool defaultPos) {
   }
   _softStart();
 }
-
+//Startup helper function
 void Braccio::_softwarePWM(int high_time, int low_time) {
   digitalWrite(SOFT_START_PIN, HIGH);
   delayMicroseconds(high_time);
@@ -124,15 +125,15 @@ bool Braccio::setAllRelative(int b, int s, int e, int w, int w_r, int g) {
   out = out & setOneRelative(GRIPPER, g);
   return out;
 }
-
+//Sets maximum command value of given joint
 void Braccio::setJointMax(int joint, int value) {
   _jointMax[joint] = constrain(value, GLOBAL_MIN, GLOBAL_MAX);
 }
-
+//Sets minimum command value of given joint
 void Braccio::setJointMin(int joint, int value) {
   _jointMin[joint] = constrain(value, GLOBAL_MIN, GLOBAL_MAX);
 }
-
+//Set the center point of given joint
 void Braccio::setJointCenter(int joint, int offset) {
   _jointCenter[joint] = constrain(offset, GLOBAL_MIN, GLOBAL_MAX);
 }
@@ -148,10 +149,11 @@ void Braccio::setAllNow(int b, int s, int e, int w, int w_r, int g) {
   _setServo(WRIST_ROT, w_r, true);
   _setServo(GRIPPER, g, true);
 }
-
+//Sets the speed of a given joint, defaults to 1
 void Braccio::setDelta(int joint, int value) {
   _jointDelta[joint] = value;
 }
+//Sets a given joint to a specific position
 void Braccio::_setServo(int joint, int value, bool updateTarget) {
   switch (joint) {
     case BASE_ROT:
@@ -199,6 +201,7 @@ void Braccio::_setServo(int joint, int value, bool updateTarget) {
 
   }
 }
+//Processes servo movement request
 void Braccio::_moveServo(int joint) {
   int currentPos = _currentJointPositions[joint];
   int targetPos = _targetJointPositions[joint];
@@ -210,7 +213,7 @@ void Braccio::_moveServo(int joint) {
     _setServo(joint, newPos, false);
   }
 }
-
+//Delays for ms with movement updates every t ms
 void Braccio::safeDelay(int ms, int t){
   long currentTime = millis();
   while(millis() < currentTime + ms){
@@ -218,13 +221,16 @@ void Braccio::safeDelay(int ms, int t){
     delay(t);
   }
 }
+
+//Delays with movement updates every 10ms
 void Braccio::safeDelay(int ms){
   safeDelay(ms, 10);
 }
-
+//Returns the calibrated center point of the given joint
 int Braccio::getCenter(int joint){
   return _jointCenter[joint];
 }
+//Processes movement of each joint to achieve target endpoint
 void Braccio::update() {
   _moveServo(BASE_ROT);
   _moveServo(SHOULDER);
