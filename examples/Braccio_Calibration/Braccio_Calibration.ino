@@ -1,11 +1,22 @@
-/**
- * Braccio_Calibration.ino
- * Author: Lukas Severinghaus
- * Date: August 20, 2019
- *
- * Calibration program for Braccio arm. To use: upload the program and open the Serial terminal at 9600 baud rate and
- * set the line ending dropdown to "no line ending." Follow the prompts.
- * Copy the final results into your program to use.
+/*
+ Braccio_Calibration.ino - version 0.2
+ Written by Lukas Severinghaus
+ Calibration program for the Braccio Arm. To use, upload the program
+ Open the serial monitor with baud rate 9600 and no line endings
+ and follow the prompts. Copy the final values to your program
+ to use the calibration parameters.
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
 #include "BraccioV2.h"
